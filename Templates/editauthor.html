@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Author page</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    name <input type="text" value="{{author.AuthorName}}" name="tbaname"/><br/>
+    DOB <input type="date" value="{{author.AuthorDob}}" name="tbadob"/><br/>
+    Gender <select name="ddlgender">
+    <option selected>{{author.AuthorGender}}</option>
+    <option>--SELECT--</option>
+    <option>Male</option>
+    <option>FeMale</option>
+</select>
+    <br/>
+    Email <input type="text" value="{{author.AuthorEmail}}" name="tbemail"><br/>
+    Phone <input type="text"  value="{{author.AuthorPhone}}" name="tbphone"/><br/>
+    City <select name="ddlcity" >
+    <option selected>{{author.AuthorCity.CityName}}</option>
+    <option>--SELECT--</option>
+    {% for city in cities %}
+        <option>{{city.CityName}}</option>
+    {% endfor %}
+
+</select><br/>
+    <input type="submit" value="Add Author">
+
+
+</form>
+</body>
+</html>

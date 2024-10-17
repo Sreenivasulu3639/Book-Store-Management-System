@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Authors Page</title>
+</head>
+<body>
+<table border="1" cellpadding="5px">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+            <tr>
+                <td>{{author.AuthorName}}</td>
+                <td>{{author.AuthorDob}}</td>
+                <td>{{author.AuthorGender}}</td>
+                <td>{{author.AuthorEmail}}</td>
+                <td>{{author.AuthorPhone}}</td>
+                <td>{{author.AuthorCity.CityName}}</td>
+                <td>
+                    <a href="{% url 'editauthor' author.id %}">Edit</a>
+                    <a href="{% url 'deleteauthor' author.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
